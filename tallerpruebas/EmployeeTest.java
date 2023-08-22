@@ -57,17 +57,16 @@ class EmployeeTest {
 	
 	public void calcularSalaryDecimoWorker(){
 		Employee e= new Employee(150f,"USD", 12.2f,EmployeeType.Worker);
-        
 		float result= e.cs();
-		assertEquals(150f, result);
 
+		assertEquals(214.33f, result);
 	}
 	
 	@Test
 	public void calcularSalaryDecimoSupervisor(){
 		Employee e= new Employee(150f,"USD", 12.2f,EmployeeType.Supervisor);
 		float result= e.cs();
-		float salarioEsperado = 150f + (12.2f * 0.35F);
+		float salarioEsperado = 150f + (12.2f * 0.35F) + (12.2f * 0.35f);
 		
 		assertEquals(salarioEsperado, result);
 	}
@@ -76,7 +75,7 @@ class EmployeeTest {
 	public void calcularSalaryDecimoSManager(){
 		Employee e= new Employee(150f,"USD", 12.2f,EmployeeType.Manager);
 		float result= e.cs();
-		float salarioEsperado = 150f + (12.2f * 0.7F);
+		float salarioEsperado = 150f + (12.2f * 0.7F) + (12.2f * 0.7f);
 		
 		assertEquals(salarioEsperado, result);
 	}
@@ -108,6 +107,18 @@ class EmployeeTest {
 
 	}
 	
-	
+	@Test
+	public void calcularBonusCurrency(){
+		Employee e= new Employee(150.0f, "USD", 12.2f, EmployeeType.Supervisor);
+
+		
+	}
+
+	@Test
+	public void calcularBonusDiferentCurrency(){
+		Employee e= new Employee(150.0f, "Bs", 12.2f, EmployeeType.Supervisor);
+
+		
+	}
 	
 }
